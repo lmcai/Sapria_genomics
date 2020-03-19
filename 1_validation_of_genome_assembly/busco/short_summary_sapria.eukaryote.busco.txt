@@ -1,0 +1,15 @@
+# BUSCO version is: 3.0.2 
+# The lineage dataset is: eukaryota_odb9 (Creation date: 2016-11-02, number of species: 100, number of BUSCOs: 303)
+# To reproduce this run: python /n/home08/lmcai/programs/busco/scripts/run_BUSCO.py -i ../../100_wga/input_seqs/Sapria_V1.softmasked.fa -o sapria.eukaryote.busco -l /n/scratchlfs/davis_lab/lmcai/eukaryota_odb9/ -m genome -c 16 -z -sp fly
+#
+# Summarized benchmarking in BUSCO notation for file ../../100_wga/input_seqs/Sapria_V1.softmasked.fa
+# BUSCO was run in mode: genome
+
+	C:76.9%[S:74.9%,D:2.0%],F:7.6%,M:15.5%,n:303
+
+	233	Complete BUSCOs (C)
+	227	Complete and single-copy BUSCOs (S)
+	6	Complete and duplicated BUSCOs (D)
+	23	Fragmented BUSCOs (F)
+	47	Missing BUSCOs (M)
+	303	Total BUSCO groups searched
