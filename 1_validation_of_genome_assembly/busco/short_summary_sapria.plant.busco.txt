@@ -1,0 +1,15 @@
+# BUSCO version is: 3.0.2 
+# The lineage dataset is: embryophyta_odb9 (Creation date: 2016-02-13, number of species: 30, number of BUSCOs: 1440)
+# To reproduce this run: python /n/home08/lmcai/programs/busco/scripts/run_BUSCO.py -i ../../100_wga/input_seqs/Sapria_V1.softmasked.fa -o sapria.plant.busco -l /n/scratchlfs/davis_lab/lmcai/embryophyta_odb9/ -m genome -c 16 -z -sp arabidopsis
+#
+# Summarized benchmarking in BUSCO notation for file ../../100_wga/input_seqs/Sapria_V1.softmasked.fa
+# BUSCO was run in mode: genome
+
+	C:41.7%[S:40.9%,D:0.8%],F:3.1%,M:55.2%,n:1440
+
+	600	Complete BUSCOs (C)
+	589	Complete and single-copy BUSCOs (S)
+	11	Complete and duplicated BUSCOs (D)
+	45	Fragmented BUSCOs (F)
+	795	Missing BUSCOs (M)
+	1440	Total BUSCO groups searched
