@@ -16,9 +16,5 @@ Subdirectories:
 		
 		genome_size_est.R: R scrip used to estimate the genome size of Sapria and the size of its single-copy regions. This protocol followed the pipeline described on the bioinformatics website from the University of Connecticut (https://bioinformatics.uconn.edu/genome-size-estimation-tutorial/).
 		
-- busco: contains scripts and output of running BUSCO on the assemblies
-
-
-
 - supernova: contains scripts to generate assembly based on the 10X linked-reads library using Supernova
 - ARKS-LINKS: contains scripts to run ARKS and LINKS to generate superscaffolds based on 
