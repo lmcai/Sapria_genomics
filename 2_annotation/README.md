@@ -16,3 +16,5 @@ MAKER control file: maker_opt.ctl2
 
 ab initio retraining and MAKER run3
 ------------
+SNAP was retrained based on the output from run2 following the same method.
+MAKER control file: maker_opt.ctl3
