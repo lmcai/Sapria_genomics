@@ -13,4 +13,4 @@ mkdir params
 cd params
 forge ../export.ann ../export.dna > ../forge.log 2>&1
 
-../SNAP-master/hmm-assembler.pl Sapria_V1.softmasked.fa params/ > snap1.hmm
+../SNAP-master/hmm-assembler.pl Sapria_V1.softmasked params/ > snap1.hmm
