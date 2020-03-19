@@ -10,8 +10,8 @@ MAKER control file: maker_opt.ctl1
 
 ab initio training and MAKER run2
 ------------
-SNAP training script:snap.sh
-AUGUSTUS training script:augustus.sh
+SNAP training script: snap.sh
+AUGUSTUS training script: augustus.sh
 MAKER control file: maker_opt.ctl2
 
 ab initio retraining and MAKER run3
