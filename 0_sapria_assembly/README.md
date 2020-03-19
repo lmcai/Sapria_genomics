@@ -8,7 +8,7 @@ Genome assembly
 
 Subdirectories:
 
-- kmer: contains the scripts to run the KAT kmer analysis to estimate the genome size of Sapria
+- kmer: contains the scripts and results from jellyfish to estimate the genome size of Sapria
 - busco: contains scripts and output of running BUSCO on the assemblies
 
 
