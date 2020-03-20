@@ -1,5 +1,5 @@
 gff3_merge -d Sapria_longintron.rnd1_master_datastore_index.log
-maker2zff -x 0.5 -l 50 Sapria_longintron.rnd1.all.gff
+maker2zff -x 0.25 -l 50 Sapria_longintron.rnd1.all.gff
 
 fathom genome.ann genome.dna -gene-stats > gene-stats.log 2>&1
 fathom genome.ann genome.dna -validate > validate.log 2>&1
