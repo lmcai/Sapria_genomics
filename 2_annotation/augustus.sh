@@ -17,25 +17,22 @@ export AUGUSTUS_CONFIG_PATH=/n/home08/lmcai/programs/Augustus/config/
 python ~/programs/busco/scripts/run_BUSCO.py -i sapria.maker.round1.transcripts1000.fasta \
  -o sapria_rnd1_augustus -l /n/holyscratch01/davis_lab/lmcai/embryophyta_odb9 -m genome -c 20 --long \
  -sp arabidopsis -z --augustus_parameters='--progress=true'
-#~24h
-INFO    Results:
-INFO    C:25.5%[S:24.7%,D:0.8%],F:8.2%,M:66.3%,n:1440
-INFO    367 Complete BUSCOs (C)
-INFO    355 Complete and single-copy BUSCOs (S)
-INFO    12 Complete and duplicated BUSCOs (D)
-INFO    118 Fragmented BUSCOs (F)
-INFO    955 Missing BUSCOs (M)
-INFO    1440 Total BUSCO groups searched
-
+#BUSCO screen output
+#INFO    C:32.9%[S:32.2%,D:0.7%],F:4.7%,M:62.4%,n:1440
+#INFO    474 Complete BUSCOs (C)
+#INFO    464 Complete and single-copy BUSCOs (S)
+#INFO    10 Complete and duplicated BUSCOs (D)
+#INFO    67 Fragmented BUSCOs (F)
+#INFO    899 Missing BUSCOs (M)
+#INFO    1440 Total BUSCO groups searched
 
 cd run_sapria_rnd1_augustus/augustus_output/retraining_parameters/
-rename BUSCO_sapria_rnd1_augustus_3756819707 sapria_constrictor *
+rename BUSCO_sapria_rnd1_augustus_2039751926 sapria_longintron *
 
 
-#sed -i 's/BUSCO_Bcon_rnd2_maker_2277442865/Boa_constrictor/g' Boa_constrictor_parameters.cfg
-sed -i -- 's/BUSCO_sapria_rnd1_augustus_3756819707/sapria_constrictor/g' sapria_constrictor_parameters.cfg
-sed -i -- 's/BUSCO_sapria_rnd1_augustus_3756819707/sapria_constrictor/g' sapria_constrictor_parameters.cfg.orig1
+sed -i -- 's/BUSCO_sapria_rnd1_augustus_2039751926/sapria_longintron/g' sapria_longintron_parameters.cfg
+sed -i -- 's/BUSCO_sapria_rnd1_augustus_2039751926/sapria_longintron/g' sapria_longintron_parameters.cfg.orig1
 
 
-mkdir $AUGUSTUS_CONFIG_PATH/species/sapria_constrictor
-cp sapria_constrictor*  $AUGUSTUS_CONFIG_PATH/species/sapria_constrictor/
+mkdir $AUGUSTUS_CONFIG_PATH/species/sapria_longintron
+cp sapria_longintron*  $AUGUSTUS_CONFIG_PATH/species/sapria_longintron/
