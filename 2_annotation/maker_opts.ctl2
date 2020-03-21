@@ -16,7 +16,7 @@ other_pass=0 #passthrough anyything else in maker_gff: 1 = yes, 0 = no
 est=sapria_est.fas #set of ESTs or assembled mRNA-seq in fasta format
 altest=Rafflesiaceae_three_genera_est.fas #EST/cDNA sequence file in fasta format from an alternate organism
 est_gff=Sapria_longintron.rnd1.est2genome.gff #aligned ESTs or mRNA-seq from an external GFF3 file
-altest_gff= #aligned ESTs from a closly relate species in GFF3 format
+altest_gff=Sapria_longintron.rnd1.cdna2genome.gff #aligned ESTs from a closly relate species in GFF3 format
 
 #-----Protein Homology Evidence (for best results provide a file for at least one)
 protein=Mes.protein.fa,Ptr.protein.fa,Vvi.protein.fa,uniprot_sprot.fasta  #protein sequence file in fasta format (i.e. from mutiple oransisms)
