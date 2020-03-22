@@ -12,7 +12,7 @@ Prior to assembly, we removed nanopore reads shorter than 10kb. The scripts used
 - script: canu.sh
 3. Shasta pipeline
 - Shasta is the most recently developed de novo assembler from Oxford Nanopore reads.
-- script: canu.sh: shasta.sh
+- script: shasta.sh
 4. Assembly merge
 - We used Quickmerge to merge three assemblies and improve contiguity of genome assemblies based on nanopore sequences.
 - script: quickmerge.sh
