@@ -10,7 +10,7 @@ In order to improve the performance of species-specific repeat identification, w
 
 Species-specific repeat library generation: repeatmodeler.sh
 
-Repeat annotation in the assembly and result summarization: repeatmasker.sh
+Repeat annotation and result summarization: repeatmasker.sh
 
 Evidence-based MAKER annotation run1
 ------------
