@@ -15,30 +15,30 @@ other_pass=0 #passthrough anyything else in maker_gff: 1 = yes, 0 = no
 #-----EST Evidence (for best results provide a file for at least one)
 est=sapria_est.fas #set of ESTs or assembled mRNA-seq in fasta format
 altest=Rafflesiaceae_three_genera_est.fas #EST/cDNA sequence file in fasta format from an alternate organism
-est_gff=Sapria_longintron.rnd1.est2genome.gff #aligned ESTs or mRNA-seq from an external GFF3 file
-altest_gff=Sapria_longintron.rnd1.cdna2genome.gff #aligned ESTs from a closly relate species in GFF3 format
+est_gff=Sapria_longintron.rnd1_rerun.est2genome.gff #aligned ESTs or mRNA-seq from an external GFF3 file
+altest_gff=Sapria_longintron.rnd1_rerun.cdna2genome.gff #aligned ESTs from a closly relate species in GFF3 format
 
 #-----Protein Homology Evidence (for best results provide a file for at least one)
 protein=Mes.protein.fa,Ptr.protein.fa,Vvi.protein.fa,uniprot_sprot.fasta  #protein sequence file in fasta format (i.e. from mutiple oransisms)
-protein_gff=Sapria_longintron.rnd1.protein2genome.gff  #aligned protein homology evidence from an external GFF3 file
+protein_gff=Sapria_longintron.rnd1_rerun.protein2genome.gff  #aligned protein homology evidence from an external GFF3 file
 
 #-----Repeat Masking (leave values blank to skip repeat masking)
 model_org=arabidopsis #select a model organism for RepBase masking in RepeatMasker
-rmlib=Sapria_10k-families.fa #provide an organism specific repeat library in fasta format for RepeatMasker
+rmlib=/n/holyscratch01/davis_lab/lmcai/sapria/10_maker_annotation_sapria/Sapria_10k-families.fa #provide an organism specific repeat library in fasta format for RepeatMasker
 repeat_protein= #provide a fasta file of transposable element proteins for RepeatRunner
-rm_gff=links18.scaffolds.fa.rnd2.all.maker.repeats.gff #pre-identified repeat elements from an external GFF3 file
+rm_gff=/n/holyscratch01/davis_lab/lmcai/sapria/10_maker_annotation_sapria/links18.scaffolds.fa.rnd2.all.maker.repeats.gff #pre-identified repeat elements from an external GFF3 file
 prok_rm=0 #forces MAKER to repeatmask prokaryotes (no reason to change this), 1 = yes, 0 = no
 softmask=1 #use soft-masking rather than hard-masking in BLAST (i.e. seg and dust filtering)
 
 #-----Gene Prediction
-snaphmm=snap1_rerun/snap1.hmm #SNAP HMM file
+snaphmm=links18.scaffolds.snap.rnd3.hmm #SNAP HMM file
 gmhmm= #GeneMark HMM file
 augustus_species=sapria_longintron #Augustus gene prediction species model
 fgenesh_par_file= #FGENESH parameter file
 pred_gff= #ab-initio predictions from an external GFF3 file
 model_gff= #annotated gene models from an external GFF3 file (annotation pass-through)
-est2genome=0 #infer gene predictions directly from ESTs, 1 = yes, 0 = no
-protein2genome=0 #infer predictions from protein homology, 1 = yes, 0 = no
+est2genome=1 #infer gene predictions directly from ESTs, 1 = yes, 0 = no
+protein2genome=1 #infer predictions from protein homology, 1 = yes, 0 = no
 trna=1 #find tRNAs with tRNAscan, 1 = yes, 0 = no
 snoscan_rrna= #rRNA file to have Snoscan find snoRNAs
 unmask=0 #also run ab-initio prediction programs on unmasked sequence, 1 = yes, 0 = no
@@ -54,7 +54,7 @@ cpus=1 #max number of cpus to use in BLAST and RepeatMasker (not for MPI, leave 
 max_dna_len=999999999 #length for dividing up contigs into chunks (increases/decreases memory usage)
 min_contig=1 #skip genome contigs below this length (under 10kb are often useless)
 
-pred_flank=500 #flank for extending evidence clusters sent to gene predictors
+pred_flank=200 #flank for extending evidence clusters sent to gene predictors
 pred_stats=0 #report AED and QI statistics for all predictions as well as models
 AED_threshold=1 #Maximum Annotation Edit Distance allowed (bound by 0 and 1)
 min_protein=0 #require at least this many amino acids in predicted proteins
