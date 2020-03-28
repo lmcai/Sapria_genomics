@@ -1,0 +1,9 @@
+b_out=sap.intergenic.blast.out
+p_seq=protein.db.fas
+g_seq=Sapria_longintron.intergenic.fas
+il_t=100000
+b_filter=y
+p_codes=/n/home08/lmcai/programs/ShiuLab_pseudo_pkg
+o_codes=/n/home08/lmcai/programs/ShiuLab_pseudo_pkg
+f_dir=/n/home08/lmcai/programs/fasta-35.4.12/bin/
+blosum=/n/home08/lmcai/programs/ShiuLab_pseudo_pkg/blosum50.matrix
