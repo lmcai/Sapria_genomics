@@ -31,3 +31,11 @@ ab initio retraining and MAKER annotation run3
 SNAP was retrained based on the output from run2 following the same method described in snap.sh. We then reran MAKER based on the retrained SNAP model.
 
 MAKER control file: maker_opt.ctl3
+
+Pseudogene annotation with the Shiu Lab pipeline
+------------
+Detailed documentation of the pipeline can be found on GitHub (https://github.com/ShiuLab/PseudogenePipeline)
+
+Briefly intergenic sequences are extracted using bedtools. Then proteoms from Sapria, Manihot, Populus, and Vitis were aligned to the intergenic sequences using tblastn. Then the python script from Shiu Lab was used to create pseudogene annotation. 
+
+Scripts are provided in makerp.sh
