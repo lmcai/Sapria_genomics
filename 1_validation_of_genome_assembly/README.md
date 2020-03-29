@@ -45,4 +45,4 @@ Description of subdirectories
 ------------
 - unmapped_reads: contains scripts used to assemble unmapped Illumina reads and automatically BLAST against the NCBI non-redundant nucleotide database
 - busco: contains scripts to run BUSCO on the assembly and detailed output from BUSCO containing and its Arabidopsis ortholog
-- manihot_simulation: 
+- manihot_simulation: full BUSCO output 
