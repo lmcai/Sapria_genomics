@@ -11,9 +11,16 @@ We used a variety of methods to assess the completeness of the Sapria genome ass
 		12,729,388 out of 1,299,944,392 (0.9%) reads are not mapped
 
 - We align nanopore reads to the assembly with minimap2
+
 		minimap2 -ax map-ont -t 16 Sapria_V1.fa ../../00_nanopore_raw_fastq/Sapria_nanopore.fastq >Sapria_V1.nanopore.sam
 		162,737 out of 5,501,706 (2.9%) reads are not mapped
 
+- We align transcripts to the assembly with GMAP
+		
+		gmap_build -d Sapria_GMAP_db Sapria_V1.fa
+		gmap -D . -d Sapria_GMAP_db Sapria.transcripts.fasta -S >GMAP.sum
+		147 out of 16,366 (0.9%) transcripts are not mapped
+		
 2.	Assembly of unmapped Illumina reads
 
 Unmapped reads were extracted, trimmed, and assembled into unitigs. All unitigs longer than 300bp and were compared to the NCBI non-redundant nucleotide database using BLAST to identify the closest known matching sequence. 
