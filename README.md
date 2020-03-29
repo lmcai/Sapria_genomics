@@ -33,6 +33,6 @@ The content of each subdirectory is listed as follows. For detailed description 
   pseudogene annotation with the Shiu Lab pipeline
 - ortholog_clustering
   
-  run OrthoFinder to assign ortholog groups
+  ortholog group assignment with OrthoFinder
   
-  add pseudogenes to ortholog groups for phylogenetic inference
+  pseudogenes ortholog group assignment for phylogenetic inference
