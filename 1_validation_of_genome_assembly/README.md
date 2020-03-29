@@ -4,6 +4,16 @@ We used a variety of methods to assess the completeness of the Sapria genome ass
 
 1.	Reads mapping
 
+- We align Illumina reads to the assembly with bwa
+
+		bwa mem -t32 -p -C Sapria_V1.fa ../2_longranger_basic_barcoded_fq/outs/barcoded.fastq.gz | samtools sort -@16 -t -o Sapria_V1.reads.sort.bam
+		samtools view -f 4 -b Sapria_V1.reads.sort.bam | samtools bam2fq >Sapria_V1.unmapped.fastq	
+		12,729,388 out of 1,299,944,392 (0.9%) reads are not mapped
+
+- We align nanopore reads to the assembly with minimap2
+		minimap2 -ax map-ont -t 16 Sapria_V1.fa ../../00_nanopore_raw_fastq/Sapria_nanopore.fastq >Sapria_V1.nanopore.sam
+		162,737 out of 5,501,706 (2.9%) reads are not mapped
+
 2.	Assembly of unmapped Illumina reads
 
 Unmapped reads were extracted, trimmed, and assembled into unitigs. All unitigs longer than 300bp and were compared to the NCBI non-redundant nucleotide database using BLAST to identify the closest known matching sequence. 
