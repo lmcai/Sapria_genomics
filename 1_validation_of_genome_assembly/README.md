@@ -18,7 +18,7 @@ We also assessed functional biases in missing plant BUSCOs. Orthologs from Arabi
 
 5.	Estimation of non-repetitive regions of the assembly based on read base coverage
 
-We summarized the base coverage for each site to determine the size of non-repetitive regions in the assembly. This result was compared to the estimated non-repetitive region size in the genome based on kmer distribution (see ../0_sapria_genome_assembly/kmer).	
+We summarized the base coverage for each site in the assembly to determine the size of non-repetitive regions. This result was compared to the estimated non-repetitive region size in the genome based on kmer distribution (see ../0_sapria_genome_assembly/kmer).	
 
 Description of subdirectories
 ------------
