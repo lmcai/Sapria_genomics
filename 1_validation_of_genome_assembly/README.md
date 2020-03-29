@@ -39,6 +39,6 @@ We summarized the base coverage for each site in the assembly to determine the s
 
 Description of subdirectories
 ------------
-- unmapped_reads:
+- unmapped_reads: scripts used to assemble unmapped Illumina reads and automatically BLAST against the NCBI non-redundant nucleotide database
 - busco: contains scripts and output of running BUSCO on the assembly
 - 
