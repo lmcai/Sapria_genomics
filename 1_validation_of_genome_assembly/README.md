@@ -27,9 +27,9 @@ Unmapped reads were extracted, trimmed, and assembled into unitigs. All unitigs 
 
 3.	BUSCO assessment
 
-The completeness of the Sapria assembly was mapped against 1,440 conserved plant BUSCO.v3 and 303 conserved eukaryotic BUSCO.v3 (https://busco.ezlab.org/).
+The completeness of the Sapria assembly was mapped against 1,440 conserved plant BUSCO.v3 and 303 conserved eukaryotic [BUSCO.v3](https://busco.ezlab.org/).
 
-We also assessed functional biases in missing plant BUSCOs. Orthologs from Arabidopsis for each BUSCO was determined by BLAST and subsequently used for GO analysis on PlantRegMap (http://plantregmap.cbi.pku.edu.cn/go.php).
+We also assessed functional biases in missing plant BUSCOs. Orthologs from Arabidopsis for each BUSCO was determined by BLAST and subsequently used for GO analysis on [PlantRegMap](http://plantregmap.cbi.pku.edu.cn/go.php).
 
 4.	Simulate missing data in Manihot genome and assess functional bias in missing BUSCOs
 
@@ -40,12 +40,12 @@ We subsequently ran BUSCO on the simulated assembly and the result indicated sam
 5.	Estimation of non-repetitive regions of the assembly based on read base coverage
 
 We summarized the base coverage for each site in the assembly to determine the size of non-repetitive regions. This result was compared to the estimated non-repetitive region size in the genome based on kmer distribution (see ../0_sapria_genome_assembly/kmer).
-		
-		module load bedtools2/2.26.0-fasrc01
-		bedtools genomecov -bga -ibam Sapria_V1.reads.sort.bam>Sapria_V1.10XIllumina.cov.bed
-		#then read the bed file in python and generate a hostogram file for base coverage distribution
-		#Based on the site coverage histogram, peak coverage is 60.2 X (See Fig. S#). Assuming regions within (0,120) are non-repetitive regions, 904 Mb out of 1.119Gb are non-repetitive in the current assembly	
-
+```
+module load bedtools2/2.26.0-fasrc01
+bedtools genomecov -bga -ibam Sapria_V1.reads.sort.bam>Sapria_V1.10XIllumina.cov.bed
+#then read the bed file in python and generate a hostogram file for base coverage distribution
+#Based on the site coverage histogram, peak coverage is 60.2 X (See Fig. S#). Assuming regions within (0,120) are non-repetitive regions, 904 Mb out of 1.119Gb are non-repetitive in the current assembly	
+```
 Description of subdirectories
 ------------
 - unmapped_reads: contains scripts used to assemble unmapped Illumina reads and automatically BLAST against the NCBI non-redundant nucleotide database
