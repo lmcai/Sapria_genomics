@@ -39,7 +39,7 @@ We subsequently ran BUSCO on the simulated assembly and the result indicated sam
 
 5.	Estimation of non-repetitive regions of the assembly based on read base coverage
 
-We summarized the base coverage for each site in the assembly to determine the size of non-repetitive regions. This result was compared to the estimated non-repetitive region size in the genome based on kmer distribution (see ../0_sapria_genome_assembly/kmer).
+We summarized the base coverage for each site in the assembly to determine the size of non-repetitive regions. This result was compared to the estimated non-repetitive region size in the genome based on [kmer distribution](../0_sapria_genome_assembly/kmer).
 ```
 module load bedtools2/2.26.0-fasrc01
 bedtools genomecov -bga -ibam Sapria_V1.reads.sort.bam>Sapria_V1.10XIllumina.cov.bed
