@@ -11,6 +11,3 @@ We used OrthoFinder to assign ortholog groups for 38 species that are widely sam
 		orthofinder.py -b WorkingDirectory/ -t 8 -a 8 -og
 		
 The resulting ortholog group assignment was used to assess gene loss in Sapria.
-
-Adding pseudogene to orthogroup for phylogenetic inference
---------------------
