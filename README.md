@@ -7,11 +7,11 @@ The content of each subdirectory is listed as follows. For detailed description 
 
 - **sapria_genome_assembly**
   
-  - kmer-based genome size estimation
+  kmer-based genome size estimation
   
-  - de novo assembly with Supernova using 10X library
+  de novo assembly with Supernova using 10X library
  
-  - scaffolding with the ARKS-LINKS pipeline using long-read data 
+  scaffolding with the ARKS-LINKS pipeline using long-read data 
 - **validation_of_genome_assembly**
 
   mapping Illumina, nanopore, and transcripts to the assembly
