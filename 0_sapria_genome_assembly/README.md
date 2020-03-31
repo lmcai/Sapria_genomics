@@ -15,5 +15,5 @@ Description of subdirectories
 	
 	`*.histo`: kmer count result from jellyfish
 	
-	`genome_size_est.R`: R scrip used to estimate the genome size of Sapria and the size of its single-copy regions. This protocol followed the pipeline described on the bioinformatics website from the University of Connecticut (https://bioinformatics.uconn.edu/genome-size-estimation-tutorial/).
+	`genome_size_est.R`: R scrip used to estimate the genome size of Sapria and the size of its single-copy regions. This protocol followed the pipeline described on the [bioinformatics website from the University of Connecticut](https://bioinformatics.uconn.edu/genome-size-estimation-tutorial/).
 		
