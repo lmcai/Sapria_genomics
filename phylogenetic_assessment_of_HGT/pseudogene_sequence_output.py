@@ -4,6 +4,12 @@ from Bio.SeqRecord import SeqRecord
 
 y=open('sap.intergenic.blast.out_parsed_G100000.PE_I100000.PS1').readlines()
 x=open('sap.intergenic.blast.out_parsed_G100000.PE_I100000.PS1.pairs.sw.out.disable_count').readlines()
+
+disable_count_dict={}
+for l in x:
+	if l.startswith('#'):
+		disable_count_dict[l[1:].split()[0]+' '+l.split()[1]]='_'.join(l.split()[-4:])
+
 #sapria assembly
 a=SeqIO.index('Sapria_longintron.intergenic.fas','fasta')
 seq_out=open('sap_longintron.pseudogene.fas','a')
@@ -52,10 +58,11 @@ for l in y:
         	
         	#add stop codon information to ID
         	sap_range=re.findall(r'\d+', l.split('\t')[2])
-        	disable_count_string=[ll for ll in x if l.split('\t')[1]+' '+scaf+'|'+sap_range[0]+'-'+sap_range[1] in ll]
+        	#disable_count_string=[ll for ll in x if l.split('\t')[1]+' '+scaf+'|'+sap_range[0]+'-'+sap_range[1] in ll]
         	try:
-        		ID='pSHI'+'{num:06d}'.format(num=j)+'_'+scaf.split(':')[0]+'_'+'_'.join(disable_count_string[0].split()[-4:])
-        	except IndexError:
+        		#ID='pSHI'+'{num:06d}'.format(num=j)+'_'+scaf.split(':')[0]+'_'+'_'.join(disable_count_string[0].split()[-4:])
+        		ID='pSHI'+'{num:06d}'.format(num=j)+'_'+scaf.split(':')[0]+'_'+disable_count_dict[l.split('\t')[1]+' '+scaf+'|'+sap_range[0]+'-'+sap_range[1]]
+        	except KeyError:
         		ID='pSHI'+'{num:06d}'.format(num=j)+'_'+scaf.split(':')[0]
         	sap_rec=SeqRecord(sap_cds_seq,id=ID,description=ID)
         	d=SeqIO.write(sap_rec,seq_out,'fasta')
