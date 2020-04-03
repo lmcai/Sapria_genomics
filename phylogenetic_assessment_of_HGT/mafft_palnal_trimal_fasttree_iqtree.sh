@@ -1,4 +1,17 @@
-printf -v ID "OG%07d" ${SLURM_ARRAY_TASK_ID}
+#!/bin/bash
+#
+#SBATCH -n 1                 # Number of cores
+#SBATCH -N 1                 # Number of nodes for the cores
+#SBATCH -t 3-20:05           # Runtime in D-HH:MM format
+#SBATCH -p shared    # Partition to submit to
+#SBATCH --mem=20000            # Memory pool for all CPUs
+#SBATCH -o lmcai.out      # File to which standard out will be written
+#SBATCH -e lmcai.err      # File to which standard err will be written
+
+
+
+printf -v ID "OG%07d" $1 
+#printf -v ID "OG%07d" ${SLURM_ARRAY_TASK_ID}
 echo $ID
 cd /n/holyscratch01/davis_lab/lmcai/sapria/15_orthofinder_seq/aa_aln
 
@@ -14,7 +27,7 @@ fi
 echo 'aa alignment done...'
 
 cd /n/holyscratch01/davis_lab/lmcai/sapria/15_orthofinder_seq/na_aln
-#if there's pseudogene, add pseudogene sequences
+#if there is pseudogene, add pseudogene sequences
 FILE=../pseudogene_ortho_assignment/$ID.pseudo.fas
 if test -f "$FILE"
 then
@@ -24,12 +37,11 @@ else
 ../pal2nal.pl ../aa_aln/$ID.aa.fas.aln $ID.na.fas -output fasta >$ID.na.fas.aln
 fi
 
-ALIGN=$ID.na.fas.aln
-if test ! -f "$ALIGN"
+ALIGN=$(cat $ID.na.fas.aln | wc -c)
+if [ $ALIGN -eq 0 ]
 then
 echo 'pal2nal failed, so I will align DNA directly: ' $ID
 cat $ID.na.fas $FILE | mafft-einsi - > $ID.na.fas.aln
-#in case pal2nal failed..
 fi
 echo 'na alignment done...'
 
@@ -43,7 +55,7 @@ echo 'fasttree done...'
 
 module load gcc/7.1.0-fasrc01 openmpi/3.1.3-fasrc01 iqtree/1.6.10-fasrc02
 
-OUT=$((python ../get_outgroup.py $ID.na.fas.aln) 2>&1)
+OUT=$((python ../get_outgroup.py $ID.na.fas.aln.trimmed.fas) 2>&1)
 #model selection currentlt cannot run on multiple mpi
 mpirun -np 1 iqtree-mpi -s $ID.na.fas.aln.trimmed.fas -o $OUT -pre $ID -nt AUTO -bb 3000 -bnni -alrt 2000 -nm 3000 -redo
 
