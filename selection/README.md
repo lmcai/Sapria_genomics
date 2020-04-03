@@ -21,7 +21,7 @@ We used PAML to calculate the dN/dS ratio for the each branch in the following t
   |
    \-Glycine (Fabales)
 ```
-##PAML input preparation
+## PAML input preparation
 
 - **Get one representative sequence per lineage**
 
@@ -36,4 +36,4 @@ Then we used custom python script `get_VGT_Raff_for_paml.py` to further filtered
 
 We used MAFFT-einsi to align protein sequences and then transfer the protein alignment to codon alignment using pal2nal.
 
-##PAML
+## PAML
