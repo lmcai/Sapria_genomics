@@ -1,7 +1,7 @@
 # Selection analysis with PAML
 
 We used PAML to calculate the dN/dS ratio for the each branch in the following tree under a free ratio model
-
+```
 
                      /-Rafflesia_cantleyi (Rafflesiaceae)
                   /-|
@@ -20,7 +20,7 @@ We used PAML to calculate the dN/dS ratio for the each branch in the following t
   |   \-Arabidopsis (Malvales)
   |
    \-Glycine (Fabales)
-
+```
 ##PAML input preparation
 
 - **Get one representative sequence per lineage**
