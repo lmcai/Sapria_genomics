@@ -21,7 +21,7 @@ def get_closest_mono_group(tree,ingroup,sp):
 				closest_tip=tip
 		return closest_tip
 	except UnboundLocalError:
-		return []
+		return None
 
 
 for file in treefiles:
@@ -41,8 +41,7 @@ for file in treefiles:
 		ath=get_closest_mono_group(t_full,sap[0],'Ath')
 		gly=get_closest_mono_group(t_full,sap[0],'Gly')
 		#remove pseudogene, add outgroup Ath and Gly
-		tips2preserve.append(ath)
-		tips2preserve.append(gly)
+		tips2preserve=tips2preserve+[i for i in [ath,gly] if i]
 		tips2preserve=[i for i in tips2preserve if not i.startswith('pSHI')]
 		#tips2remove=[]
 		#tips2remove=[leaf.name for leaf in t_full if not leaf.name in tips2preserve]
