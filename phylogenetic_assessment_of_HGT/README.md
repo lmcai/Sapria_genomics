@@ -31,4 +31,7 @@ We infer Maximum Likelihood (ML) phylogeny of each orthogroup with IQTREE. We ap
 
 The script used for alignment and tree inference is provided in `mafft_palnal_trimal_fasttree_iqtree.sh`.
 
+Pass gene tree to identify HGT candidates
+--------------------
+We used a custom python script `VGT_HGT_classification_for_prerooted_tree.py` to identify candidate of horizontally transfered genes. This python script will pass all tree files within a folder and output `VGT.senario.tsv` which contains, for each gene per line, vertically transmitted Sapria genes and horizontally transmitted genes and there donor lineages.
  
