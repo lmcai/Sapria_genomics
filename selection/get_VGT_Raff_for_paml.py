@@ -27,7 +27,7 @@ def get_closest_mono_group(tree,ingroup,sp):
 for file in treefiles:
 	t = Tree(file,format=1)
 	geneID=file.split('.')[0]
-	tips2preserve=[leaf.name for leaf in t]
+	tips2preserve=[leaf.name for leaf in t if not leaf.name.startswith('pSHI')]
 	sap=[i for i in tips2preserve if i.startswith('Sap')]
 	malp=[i for i in tips2preserve if i.startswith(('Mes','Ptr','Jat'))]
 	if len(sap)==0 or len(malp)==0:
@@ -35,25 +35,26 @@ for file in treefiles:
 		print(file+' not enough ingroup, skipping...')
 		continue
 	else:
-		#add ath and gly as outgroup
 		print(file + ' processing...')
+		#output tree to file
+		t.prune(tips2preserve)	
+		t.write(format=1, outfile=file+'.paml.raff.tre')
+		#write aa and na to file
+		for tip in [leaf.name for leaf in t]:
+			d=SeqIO.write(aa_dict[tip],open(file+'.paml.raff.faa','a'),'fasta')
+			d=SeqIO.write(na_dict[tip],open(file+'.paml.raff.fna','a'),'fasta')
+		#add ath and gly as outgroup
 		t_full=Tree('../tem_tree_dir/'+geneID+'.treefile',format=1)
 		ath=get_closest_mono_group(t_full,sap[0],'Ath')
 		gly=get_closest_mono_group(t_full,sap[0],'Gly')
-		#remove pseudogene, add outgroup Ath and Gly
+		#add outgroup Ath and Gly
 		tips2preserve=tips2preserve+[i for i in [ath,gly] if i]
-		tips2preserve=[i for i in tips2preserve if not i.startswith('pSHI')]
+		#tips2preserve=[i for i in tips2preserve if not i.startswith('pSHI')]
 		#tips2remove=[]
 		#tips2remove=[leaf.name for leaf in t_full if not leaf.name in tips2preserve]
 		#pSAP=[i for i in tips2preserve if i.startswith('pSHI')]
 		#tips2remove=tips2remove+pSAP
 		t_full.prune(tips2preserve)
-		#output tree to file	
-		t_full.write(format=1, outfile=file+'.paml.raff.tre')
-		#write aa and na to file
-		for tip in [leaf.name for leaf in t_full]:
-			d=SeqIO.write(aa_dict[tip],open(file+'.paml.raff.faa','a'),'fasta')
-			d=SeqIO.write(na_dict[tip],open(file+'.paml.raff.fna','a'),'fasta')
 		#remove Rafflesia and Rhizanthes
 		tips2preserve=[i for i in tips2preserve if not i.startswith(('Rca','Rtu','Rhi'))]
 		t_full.prune(tips2preserve)
