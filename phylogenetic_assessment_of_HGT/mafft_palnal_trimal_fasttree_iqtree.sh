@@ -34,7 +34,7 @@ then
 ../pal2nal.pl ../aa_aln/$ID.aa.fas.aln $ID.na.fas -output fasta >$ID.na.fas.nopseudo.aln
 mafft --adjustdirection --add $FILE --keeplength $ID.na.fas.nopseudo.aln | sed 's/_R_//g' >$ID.na.fas.aln
 else
-../pal2nal.pl ../aa_aln/$ID.aa.fas.aln $ID.na.fas -output fasta >$ID.na.fas.aln
+../pal2nal.pl ../aa_aln/$ID.aa.fas.aln $ID.na.fas -output fasta -nomismatch >$ID.na.fas.aln
 fi
 
 ALIGN=$(cat $ID.na.fas.aln | wc -c)
