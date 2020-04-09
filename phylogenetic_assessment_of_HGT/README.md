@@ -31,7 +31,22 @@ We infer Maximum Likelihood (ML) phylogeny of each orthogroup with IQTREE. We ap
 
 The script used for alignment and tree inference is provided in `mafft_palnal_trimal_fasttree_iqtree.sh`.
 
-Pass gene tree to identify HGT candidates
+Identify HGT candidates in gene trees
 --------------------
 We used a custom python script `VGT_HGT_classification_for_prerooted_tree.py` to identify candidate of horizontally transfered genes. This python script will pass all tree files within a folder and output `VGT.senario.tsv` which contains, for each gene per line, vertically transmitted Sapria genes and horizontally transmitted genes and there donor lineages.
- 
+
+Expand taxon sampling within Vitaceae to investigate former host association
+--------------------
+A total of 191 gene trees are classified as candidates for Vitatceae-associated HGT. We used BLAST to search for orthologous copies of these genes in the published transcriptomes from 18 Vitaceae species ([Wen et al. 2013](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0074394); [oneKP](https://github.com/ropensci/onekp)).
+
+1. Five representative sequences were randomly chosen from each orthogroup to build BLAST database. This result in the fasta file `HGT_orthogroup_ref.fas`.
+2. We used cd-hit to remove redundant sequences with >99% similarity for each transcriptome
+```
+cd-hit-est -i [inpit] -o [output] -c 0.99 -M 0
+```
+3. Using BLASTn to find additional orthologous Vitaceae genes with an e value threshold of 1e-40
+```
+makeblastdb -in HGT_orthogroup_ref.fas -dbtype nucl -out HGT_orthogroup_ref
+blastn -task dc-megablast -db HGT_orthogroup_ref -num_threads 16 -query Vitaceae.add.cdhit.fas -outfmt 6 -evalue 1e-40 -out HGT_orthogroup_ref.blast
+```
+4. Infer alignment and phylogeny for each orthogroup as described above.
