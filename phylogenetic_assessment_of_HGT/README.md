@@ -54,9 +54,10 @@ blastn -task dc-megablast -db HGT_orthogroup_ref -num_threads 16 -query Vitaceae
 Validation of HGT candidates
 --------------------
 The following criteria were applied to all Vitaceae-associated HGT candidates to identify a confident set of HGTs:
-1. Ultrafast bootstrap support > 80 
-2. SH-aLRT bootstrap support > 80 
-3. Branch length <
-4. Unambiguous DNA sequence > 150 bp
-5. Manual check tree topology to ensure gene tree generally match species tree and the HGT pattern is not driven by paralogous copies
+1. Nest within Vitaceae with ultrafast bootstrap support > 80 and SH-aLRT bootstrap support > 80 
+2. Branch length <
+3. Unambiguous DNA sequence > 150 bp
+4. Manual check tree topology to ensure gene tree generally match species tree and the HGT pattern is not driven by paralogous copies
 
+Characterize current and former Vitaceae host
+--------------------
