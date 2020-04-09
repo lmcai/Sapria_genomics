@@ -37,7 +37,7 @@ We used a custom python script `VGT_HGT_classification_for_prerooted_tree.py` to
 
 Expand taxon sampling within Vitaceae to investigate former host association
 --------------------
-A total of 191 gene trees are classified as candidates for Vitatceae-associated HGT. We used BLAST to search for orthologous copies of these genes in the published transcriptomes from 18 Vitaceae species ([Wen et al. 2013](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0074394); [oneKP](https://github.com/ropensci/onekp)).
+A total of 191 gene trees are classified as candidates for Vitatceae-associated HGT. We used BLAST to search for orthologous copies of these genes in the published transcriptomes from 18 Vitaceae species (15 species from [Wen et al. 2013](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0074394); 3 species from [oneKP](https://github.com/ropensci/onekp)).
 
 1. Five representative sequences were randomly chosen from each orthogroup to build BLAST database. This result in the fasta file `HGT_orthogroup_ref.fas`.
 2. We used cd-hit to remove redundant sequences with >99% similarity for each transcriptome
@@ -50,3 +50,13 @@ makeblastdb -in HGT_orthogroup_ref.fas -dbtype nucl -out HGT_orthogroup_ref
 blastn -task dc-megablast -db HGT_orthogroup_ref -num_threads 16 -query Vitaceae.add.cdhit.fas -outfmt 6 -evalue 1e-40 -out HGT_orthogroup_ref.blast
 ```
 4. Infer alignment and phylogeny for each orthogroup as described above.
+
+Validation of HGT candidates
+--------------------
+The following criteria were applied to all Vitaceae-associated HGT candidates to identify a confident set of HGTs:
+1. Ultrafast bootstrap support > 80 
+2. SH-aLRT bootstrap support > 80 
+3. Branch length <
+4. Unambiguous DNA sequence > 150 bp
+5. Manual check tree topology to ensure gene tree generally match species tree and the HGT pattern is not driven by paralogous copies
+
