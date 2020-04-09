@@ -59,5 +59,5 @@ The following criteria were applied to all Vitaceae-associated HGT candidates to
 3. Unambiguous DNA sequence > 150 bp
 4. Manual check tree topology to ensure gene tree generally match species tree and the HGT pattern is not driven by paralogous copies
 
-Characterize current and former Vitaceae host
+Characterize the former Vitaceae host
 --------------------
