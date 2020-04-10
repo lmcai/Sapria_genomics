@@ -45,7 +45,7 @@ for file in treefiles:
 		outgr = outgr + [leaf.name for leaf in t if leaf.name.startswith(candidate)]
 	#root with non-malp members if basal group is available
 	if len(outgr)==0:
-		outgr = [leaf.name for leaf in t if not leaf.name.startswith(('Rca','Rtu','Rhi','Sap','pSAP','Ptr','Jat','Mes','Vvi','Tet'))]
+		outgr = [leaf.name for leaf in t if not leaf.name.startswith(('Rca','Rtu','Rhi','Sap','pSHI','Ptr','Jat','Mes','Vvi','Tet'))]
 	try:
 		t.set_outgroup( t&outgr[0] )
 	except IndexError:
@@ -55,7 +55,7 @@ for file in treefiles:
 	#########let's remove Rca, Rtu, Rhi for now	
 	########t=remv_sp(t,('Rca','Rtu','Rhi'))
 	#malp_num_w_sap=get_malp_mono_group(t)
-	#malp_num_wout_sap=get_malp_mono_group(remv_sp(t,('Rca','Rtu','Rhi','Sap','pSAP')))
+	#malp_num_wout_sap=get_malp_mono_group(remv_sp(t,('Rca','Rtu','Rhi','Sap','pSHI')))
 	malp_w_sap=get_malp_mono_group(t)
 	HGT_gr=[]
 	HGT_BS=[]
@@ -68,7 +68,7 @@ for file in treefiles:
 	for node in malp_w_sap:
 		descendants=[leaf.name for leaf in node]
 		free_living_descendants=[l for l in descendants if l.startswith(('Ptr','Jat','Mes'))]
-		parasitic_descendants=[l for l in descendants if l.startswith(('Rca','Rtu','Rhi','Sap','pSAP'))]
+		parasitic_descendants=[l for l in descendants if l.startswith(('Rca','Rtu','Rhi','Sap','pSHI'))]
 		if len(free_living_descendants)>0 and len(parasitic_descendants)>0:
 			VGT_gr.append(','.join(parasitic_descendants))
 			sap_node=node.get_common_ancestor(parasitic_descendants)
