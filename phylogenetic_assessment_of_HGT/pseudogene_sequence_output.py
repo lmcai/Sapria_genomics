@@ -38,7 +38,7 @@ for l in y:
 					validated='N'
 		#if the protein ordering is fine
 		if validated=='Y':
-			#output annotated pseudogene sequence to file and create a name map
+		#output annotated pseudogene sequence to file and create a name map
 			scaf=l.split('\t')[0]
 			coord_sap=re.findall(r'\d+, \d+', l.split('\t')[2])
 			coord_sap=[[int(i.split(', ')[0]),int(i.split(', ')[1])] for i in coord_sap]
@@ -51,23 +51,22 @@ for l in y:
 				else:
 					coord_sap_merged.append((begin, end))
 			sap_cds_seq=''
-        	for i in coord_sap_merged:
-        		s=int(i[0])-1
-        		e=int(i[1])
-        		sap_cds_seq= sap_cds_seq + a[scaf].seq[s:e]
-        	
-        	#add stop codon information to ID
-        	sap_range=re.findall(r'\d+', l.split('\t')[2])
-        	#disable_count_string=[ll for ll in x if l.split('\t')[1]+' '+scaf+'|'+sap_range[0]+'-'+sap_range[1] in ll]
-        	try:
-        		#ID='pSHI'+'{num:06d}'.format(num=j)+'_'+scaf.split(':')[0]+'_'+'_'.join(disable_count_string[0].split()[-4:])
-        		ID='pSHI'+'{num:06d}'.format(num=j)+'_'+scaf.split(':')[0]+'_'+disable_count_dict[l.split('\t')[1]+' '+scaf+'|'+sap_range[0]+'-'+sap_range[1]]
-        	except KeyError:
-        		ID='pSHI'+'{num:06d}'.format(num=j)+'_'+scaf.split(':')[0]
-        	sap_rec=SeqRecord(sap_cds_seq,id=ID,description=ID)
-        	d=SeqIO.write(sap_rec,seq_out,'fasta')
-        	map_out.write(l.strip()+'\t'+ID+'\n')
-        	j=j+1
+			for i in coord_sap_merged:
+				s=int(i[0])-1
+				e=int(i[1])
+				sap_cds_seq= sap_cds_seq + a[scaf].seq[s:e]
+			#add stop codon information to ID
+			sap_range=re.findall(r'\d+', l.split('\t')[2])
+			#disable_count_string=[ll for ll in x if l.split('\t')[1]+' '+scaf+'|'+sap_range[0]+'-'+sap_range[1] in ll]
+			try:
+				#ID='pSHI'+'{num:06d}'.format(num=j)+'_'+scaf.split(':')[0]+'_'+'_'.join(disable_count_string[0].split()[-4:])
+				ID='pSHI'+'{num:06d}'.format(num=j)+'_'+scaf.split(':')[0]+'_'+disable_count_dict[l.split('\t')[1]+' '+scaf+'|'+sap_range[0]+'-'+sap_range[1]]
+			except KeyError:
+				ID='pSHI'+'{num:06d}'.format(num=j)+'_'+scaf.split(':')[0]
+			sap_rec=SeqRecord(sap_cds_seq,id=ID,description=ID)
+			d=SeqIO.write(sap_rec,seq_out,'fasta')
+			map_out.write(l.strip()+'\t'+ID+'\n')
+			j=j+1
 
 seq_out.close()
 map_out.close()
