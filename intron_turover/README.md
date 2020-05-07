@@ -12,6 +12,7 @@ This python script will output a csv file `output_prefix.csv` containing the gen
 
 
 2. **Intron-wise characters**
+
 We used a custom python scrip `get_intron_position_from_gff.py` to summarize the positions and length of each intron. The output is a tab delimited file bed file `output_prefix.bed` containing staffold ID, start position, end position, and gene name of each intron.
 
 ```
