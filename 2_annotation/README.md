@@ -36,6 +36,6 @@ Pseudogene annotation with the Shiu Lab pipeline
 ------------
 Detailed documentation of the pipeline can be found on GitHub (https://github.com/ShiuLab/PseudogenePipeline)
 
-Briefly intergenic sequences are extracted using bedtools. Then proteoms from Sapria, Manihot, Populus, and Vitis were aligned to the intergenic sequences using tblastn. Then the python script from Shiu Lab was used to create pseudogene annotation. 
+Intergenic sequences are extracted using bedtools. Then proteoms from Sapria, Manihot, Populus, and Vitis were aligned to the intergenic sequences using tblastn. Then the python script from Shiu Lab was used to create pseudogene annotation. 
 
 Scripts are provided in makerp.sh
