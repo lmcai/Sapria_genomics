@@ -39,8 +39,22 @@ To investigate TE activities in introns, we used `bedtools` to calculate the tot
 awk -v OFS='\t' '{print $5, $6,$7,$11}' sapria.scaffolds.fa.out >sapria.scaffolds.fa.repeatmasker.bed
 ```
 2. Use bedtools to get intronic regions intersect with the repeat annotation and calculate the total size
+
+For introns longer than 1000 bp:
 ```
-#filter the intron_pos.bed to get positions of intron longer than 1000 bp:sapria.intron_short1000.bed
+#filter the intron_pos.bed to get positions of intron longer than 1000 bp:sapria.intron_long1000.bed
+#summarize total size using bedtools
+bedtools intersect -a sapria.scaffolds.fa.repeatmasker.bed -b sapria.intron_long1000.bed | sort -k1,1 -k2,2n | bedtools merge | awk '{ sum += ($3 - $2) } END { print sum}'
+89,596,714
+awk '{ sum += ($3 - $2) } END { print sum}' sapria.intron_long1000.bed
+121,107,309
+74.0% length of these >1kb introns are identified as repeats
+
+```
+
+For introns shorter than 1000 bp:
+```
+#filter the intron_pos.bed to get positions of intron shorter than 1000 bp:sapria.intron_short1000.bed
 #summarize total size using bedtools
 bedtools intersect -a sapria.scaffolds.fa.repeatmasker.bed -b sapria.intron_short1000.bed | sort -k1,1 -k2,2n | bedtools merge | awk '{ sum += ($3 - $2) } END { print sum}'
 814,879
