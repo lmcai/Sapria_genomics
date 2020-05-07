@@ -11,7 +11,7 @@ python summarize_gene_len_intron_size_from_gff.py [input_genome_annotation.gff] 
 This python script will output two files:
 
 i. a csv file `output_prefix.csv` containing the gene length, intron number, intron length, and CDS length for each gene. 
-ii. a csv file `output_prefix.distr` containing all intron lengths for plotting purpose.
+ii. a csv file `output_prefix.distr` containing all intron lengths for plotting purpose ().
 
 ## Intron turnover in Sapria using cross-species protein alignment
 
