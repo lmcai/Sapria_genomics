@@ -24,12 +24,12 @@ The content of each subdirectory is listed as follows. For detailed description 
   
   non-repetitive region size estimation based on read coverage
   
-- **phylogenetic_assessment_of_HGT**
+- **annotation**
   
-  alignment and gene tree reconstruction
+  de novo repeat annotation with repeatModeler and repeatMasker
   
-  custom python script to identify HGT based on phylogeny
-  
+  gene prediction with MAKER
+   
   pseudogene annotation with the Shiu Lab pipeline
 - **ortholog_clustering**
   
@@ -43,4 +43,3 @@ The content of each subdirectory is listed as follows. For detailed description 
   
   custom python script to identify HGT based on phylogeny
   
-  pseudogene annotation with the Shiu Lab pipeline
