@@ -66,7 +66,8 @@ awk '{ sum += ($3 - $2) } END { print sum}' sapria.intron_short1000.bed
 
 ## Intron turnover in Sapria using cross-species protein alignment
 
-To further investigate the turnover rate (gains and losses) of introns in Sapria, we leveraged the cross-species protein alignment from MAKER annotation to 
+To further investigate the turnover rate (gains and losses) of introns in Sapria, we leveraged the cross-species protein alignment from MAKER annotation to compare the intron positions in Sapria to that from Manihot and Populus.
+
 
 ## dN/dS ratio calculation
 Please see [selection](../selection)
