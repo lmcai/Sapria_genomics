@@ -53,6 +53,7 @@ awk '{ sum += ($3 - $2) } END { print sum}' sapria.intron_long1000.bed
 ```
 
 For introns shorter than 1000 bp:
+
 ```
 #filter the intron_pos.bed to get positions of intron shorter than 1000 bp:sapria.intron_short1000.bed
 #summarize total size using bedtools
@@ -67,7 +68,7 @@ awk '{ sum += ($3 - $2) } END { print sum}' sapria.intron_short1000.bed
 ## Intron turnover in Sapria using cross-species protein alignment
 
 To further investigate the turnover rate (gains and losses) of introns in Sapria, we leveraged the cross-species protein alignment from MAKER annotation to compare the intron positions in Sapria to that from Manihot and Populus.
-
+1. Extracting 
 
 ## dN/dS ratio calculation
 Please see [selection](../selection)
