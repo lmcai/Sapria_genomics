@@ -2,15 +2,9 @@
 
 We used PAML to calculate the dN/dS ratio for the each branch in the following tree under a free ratio model
 ```
-
-                     /-Rafflesia_cantleyi (Rafflesiaceae)
-                  /-|
-               /-|   \-Rafflesia_tuan-mudae (Rafflesiaceae)
-              |  |
-            /-|   \-Rhizanthes_zippelii (Rafflesiaceae)
-           |  |
-         /-|   \-Sapria_himalayana (Rafflesiaceae)
-        |  |
+            /- Sapria_himalayana (Rafflesiaceae)
+           |  
+         /-|   
         |  |   /-Manihot (Malpighiales)
       /-|   \-|
      |  |      \-Jatropha (Malpighiales)
@@ -37,3 +31,4 @@ Then we used custom python script `get_VGT_Raff_for_paml.py` to further filtered
 We used MAFFT-einsi to align protein sequences and then transfer the protein alignment to codon alignment using pal2nal.
 
 ## PAML
+We inferred dN and dS ratio for each brach in the above tree under the free ratio model using codeml from the PAML package. The gene trees and codon alignments were used as input for each orthogroup. An exemplar control file for codeml is provided: `paml.clt`.
