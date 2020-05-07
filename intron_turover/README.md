@@ -29,7 +29,7 @@ blastn -task dc-megablast -db sapria_compact_genes -num_threads 1 -query Mes.cds
 export LC_ALL=C LC_LANG=C; sort -k1,1 -k12,12gr -k11,11g -k3,3gr sapria_compact_genes2mes.blast >sapria_compact_genes2mes.blast.srt
 python filter_sorted_blast_for_top_number_hits.py sapria_compact_genes2mes.blast.srt 1
 ```
-We then conducted GO enrichment analysis for highly compact genes using the Manihot/Populus orthologs using the [PlantRegMap web server] (http://plantregmap.cbi.pku.edu.cn/go.php).
+We then conducted GO enrichment analysis for highly compact genes using the Manihot/Populus orthologs using the [PlantRegMap web server](http://plantregmap.cbi.pku.edu.cn/go.php).
 
 ## TE activities in introns
 To investigate TE activities in introns, we used `bedtools` to calculate the total sizes of introns that have been annotated as 'intron' by RepeatMaker. 
@@ -69,6 +69,6 @@ awk '{ sum += ($3 - $2) } END { print sum}' sapria.intron_short1000.bed
 To further investigate the turnover rate (gains and losses) of introns in Sapria, we leveraged the cross-species protein alignment from MAKER annotation to 
 
 ## dN/dS ratio calculation
-Please see [selection] (../selection)
+Please see [selection](../selection)
 
 ## Statistic estimation of correlation significancy break point
