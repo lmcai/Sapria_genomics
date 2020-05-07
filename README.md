@@ -36,3 +36,10 @@ The content of each subdirectory is listed as follows. For detailed description 
   ortholog group assignment with OrthoFinder
   
   pseudogenes ortholog group assignment for phylogenetic inference
+- **phylogenetic_assessment_of_HGT**
+  
+  alignment and gene tree reconstruction
+  
+  custom python script to identify HGT based on phylogeny
+  
+  pseudogene annotation with the Shiu Lab pipeline
