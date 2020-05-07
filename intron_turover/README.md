@@ -16,7 +16,7 @@ This python script will output a csv file `output_prefix.csv` containing the gen
 We used a custom python scrip `get_intron_position_from_gff.py` to summarize the positions and length of each intron. The output is a tab delimited file bed file `intron_pos.bed` containing staffold ID, start position, end position, and gene name of each intron.
 
 ```
-python get_intron_position_from_mes_gff.py [input_genome_annotationgff] [intron_pos.bed]
+python get_intron_position_from_gff.py [input_genome_annotationgff] [intron_pos.bed]
 ```
 ## GO enrichment of highly compact genes
 We firstly extracted highly compact genes with all introns <150 bp (or without introns) in the `intron_pos.bed` file.
@@ -35,7 +35,7 @@ We then conducted GO enrichment analysis for highly compact genes using the Mani
 To investigate TE activities in introns, we used `bedtools` to calculate the total sizes of introns that have been annotated as 'intron' by RepeatMaker. 
 1. Maker a bed file of repeat annotation
 ```
-#sapria.scaffolds.fa.out is the output from repeatmasker
+#sapria.scaffolds.fa.out is the output from repeatmasker containing positions and classifications of repeats
 awk -v OFS='\t' '{print $5, $6,$7,$11}' sapria.scaffolds.fa.out >sapria.scaffolds.fa.repeatmasker.bed
 ```
 2. Use bedtools to get intronic regions intersect with the repeat annotation and calculate the total size
@@ -66,7 +66,9 @@ awk '{ sum += ($3 - $2) } END { print sum}' sapria.intron_short1000.bed
 
 ## Intron turnover in Sapria using cross-species protein alignment
 
+To further investigate the turnover rate (gains and losses) of introns in Sapria, we leveraged the cross-species protein alignment from MAKER annotation to 
 
 ## dN/dS ratio calculation
+Please see [selection] (../selection)
 
 ## Statistic estimation of correlation significancy break point
