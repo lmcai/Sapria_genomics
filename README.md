@@ -36,6 +36,14 @@ The content of each subdirectory is listed as follows. For detailed description 
   ortholog group assignment with OrthoFinder
   
   pseudogenes ortholog group assignment for phylogenetic inference
+  
+- **intron_turnover**
+  
+  intron length and position characterization
+  
+  intron turnover rate based on cross-species protein alignment
+  
+  correlation test of maximum intron length and dN/dS ratio
 
 - **phylogenetic_assessment_of_HGT**
   
