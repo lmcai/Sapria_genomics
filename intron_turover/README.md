@@ -131,7 +131,7 @@ Please see [selection](../selection)
 
 2. Statistic test of correlation between the maximum inton length and dN/dS ratio
 
-We ran Pearson's correlation test to identify any significant correlation between the maximum inton length and dN/dS ratio. 
+We used Pearson's correlation test to identify any significant correlation between the maximum inton length and dN/dS ratio. 
 
 The initial result suggested significant correlation for the entire dataset (p-value 9.9e-12), but insignificant correlation when only considering genes with intron length less than 1000 bp (p-value 0.73). To statistically infer the break point where such correlation become significant, we iteratively infer the p-value of pearson’s correlation using thresholds ranging from 10 to 10,000 bp. The R script is available in `intron_length_selection_pressure.R`.
 
