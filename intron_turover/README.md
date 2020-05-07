@@ -1,5 +1,5 @@
 # Intron turnover in Sapria
-The gene length in Sapria exhibits extreme disparity, containing both highly streamlined genes and genes with the longest introns reported in angiosperms. To further investigate the evolutionary driving forces of this divergent selection, we used the following pipeline to characterize the length, turnover rate, and composition of introns. We also test the statistic correlation between intron length and dN/dS ratio.
+The gene length in Sapria exhibits extreme disparity, containing both highly streamlined genes and genes with the longest introns reported in angiosperms. To further investigate the evolutionary driving forces of this divergent selection, we used the **evidence-based gene annotation from MAKER** to characterize the length, turnover rate, and composition of introns. We also test the statistic correlation between intron length and dN/dS ratio.
 
 ## Characterization of intron position and length
 1. **Gene-wise characters**
@@ -129,5 +129,10 @@ A total of 8910 genes have valid protein alignment (>80% aligned protein length)
 
 Please see [selection](../selection)
 
-2. Statistic test of correlation between maximum inton length and dN/dS ratio
+2. Statistic test of correlation between the maximum inton length and dN/dS ratio
+
+We ran Pearson's correlation test to identify any significant correlation between the maximum inton length and dN/dS ratio. 
+
+The initial result suggested significant correlation for the entire dataset (p-value 9.9e-12), but insignificant correlation when only considering genes with intron length less than 1000 bp (p-value 0.73). To statistically infer the break point where such correlation become significant, we iteratively infer the p-value of pearson’s correlation using thresholds ranging from 10 to 10,000 bp. The R script is available in `intron_length_selection_pressure.R`.
+
 
