@@ -63,7 +63,6 @@ bedtools intersect -a sapria.scaffolds.fa.repeatmasker.bed -b sapria.intron_shor
 awk '{ sum += ($3 - $2) } END { print sum}' sapria.intron_short1000.bed
 4,070,409
 20.0% length of these <1kb introns are identified as repeats
-
 ```
 
 ## Intron turnover in Sapria using cross-species protein alignment
@@ -96,14 +95,39 @@ ALN_1	scaffold10004_11099	3524	4044	Manes.08G163400.1	0	5	5	0	bad	M153 R2 M1 R1 
 ALN_2	scaffold10004_11099	3506	4044	Potri.013G005600.1	0	4	5	0	bad	M159 R2 M1 R1 M21
 ALN_3	scaffold10004_11099	3512	4044	Potri.018G013700.1	0	7	7	0	bad	M157 R2 M1 R1 F2 M20
 ALN_4	scaffold10004_11099	3506	3982	Potri.015G142600.1	0	1	1	0	good	M159
+```
+
+2. Multiple proteins can be aligned to a single gene region in Sapria. To take a conservative measure of intron turnover in Sapria, we only chose the protein alignment that invoke the least number of gene structure change. We applied the following filtering criteria:
+
+i. For each gene predicted by MAKER annotation, the mapped regions of the Manihot/Populus protein exceed 80% of the total protein length. 
+
+ii. For each maker gene, the protein alignment with least number of intron gains and losses is chosen. 
+
+```
+python extract_high_confidence_protein2genome_one_per_gene.py
+```
+
+This outputs a file named `Sapria_longintron.rnd1_rerun.maker.best_protein2genome.80prot_len.tsv`:
+```
+Gene_ID	Aln_ID	scaffold	start	end	protein_name	intron_gain	intron_loss	intron_num_in_ref_sp	intron_num_in_sapria	note
+maker-scaffold65_2763911-exonerate_est2genome-gene-0.13-mRNA-1	ALN_144233	scaffold65_2763911	2028383	2104681	Potri.018G074500.1	0	1	23	22	bad	M63 F2_R2 M41_M29 F2_R2 M29_M53 F1_R1 M26_M7 I1 M40 F1_R1 M101_M94_M105 F2_R2 M54 F1_R1 M35_M53 F1_R1 M27 I1 M13 F1_R1 M31_M111_M97_M28_M2 I1 M41 F2_R2 M76 F2_R2 M58_M85_M90
+maker-scaffold65_2763911-exonerate_est2genome-gene-0.13-mRNA-1	ALN_144237	scaffold65_2763911	2028383	2104681	Manes.16G064000.1	0	1	23	22	bad	M63 F2_R2 M41_M29 F2_R2 M29_M53 F1_R1 M26_M7 I1 M40 F1_R1 M101_M13 D1 M80_M105 F2_R2 M54 F1_R1 M35_M53 F1_R1 M25 I1 M15 F1_R1 M31_M111_M97_M28_M2 I1 M41 F2_R2 M76 F2_R2 M58_M85_M90
 
 ```
 
-## Correlation of intron length and dN/dS ratio
+Summerize the percentage of Sapria genes that experience intron loss:
+```
+awk '{if ($9>0) print $1}' Sapria_longintron.rnd1_rerun.maker.best_protein2genome.80prot_len.tsv | sort -u | wc -l
+2538
+awk '{print $1}' Sapria_longintron.rnd1_rerun.maker.best_protein2genome.80prot_len.tsv | sort -u | wc -l
+8910
+```
+A total of 8910 genes have valid protein alignment (>80% aligned protein length). 2538/8920=28.5% genes experience intron loss. 40% of them do not have introns. 
+
+## Correlation of maximum intron length and dN/dS ratio
 1. Calculation of dN/dS ratio for each gene
 
 Please see [selection](../selection)
 
-2. 
+2. Statistic test of correlation between maximum inton length and dN/dS ratio
 
-significancy break point
