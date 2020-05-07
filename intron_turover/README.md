@@ -41,6 +41,7 @@ awk -v OFS='\t' '{print $5, $6,$7,$11}' sapria.scaffolds.fa.out >sapria.scaffold
 2. Use bedtools to get intronic regions intersect with the repeat annotation and calculate the total size
 
 For introns longer than 1000 bp:
+
 ```
 #filter the intron_pos.bed to get positions of intron longer than 1000 bp:sapria.intron_long1000.bed
 #summarize total size using bedtools
@@ -68,9 +69,41 @@ awk '{ sum += ($3 - $2) } END { print sum}' sapria.intron_short1000.bed
 ## Intron turnover in Sapria using cross-species protein alignment
 
 To further investigate the turnover rate (gains and losses) of introns in Sapria, we leveraged the cross-species protein alignment from MAKER annotation to compare the intron positions in Sapria to that from Manihot and Populus.
-1. Extracting 
 
-## dN/dS ratio calculation
+1. The custom python script `intron_length_comparison_with_intersp_protein2genome.py` was used to extract homologous positions of Sapria introns on Manihot/Populus proteins using MAKER gff output.
+
+```
+python intron_length_comparison_with_intersp_protein2genome.py
+```
+This python script will output two tab delimited files:
+
+i. `rnd1_protein2genome.sum_by_intron.tsv` contains position information of each annotated intron based on cross-species protein alignment:
+
+```
+prot_aln_ID	scaffold	start	end	type	5_end_intron_ID	protein_hit	protein_corrd	alignment_note
+ALN_1	scaffold10004_11099	3524	4044	prot_match	-	Manes.08G163400.1	2..175	M153 R2 M1 R1 M21
+ALN_2	scaffold10004_11099	3506	4044	prot_match	-	Potri.013G005600.1	2..181	M159 R2 M1 R1 M21
+ALN_3	scaffold10004_11099	3512	4044	prot_match	-	Potri.018G013700.1	2..179	M157 R2 M1 R1 F2 M20
+ALN_4	scaffold10004_11099	3506	3982	prot_match	-	Potri.015G142600.1	23..181	M159
+
+```
+
+ii. `rnd1_protein2genome.sum_by_gene.tsv` summarizes counts of intron gains and losses based on cross-species protein alignment:
+
+```
+prot_aln_ID	scaffold	start	end	prot_name	intron_gain	intron_loss	ancestral_intron_num	sap_intron_num	aln_quality	raw_aln_annotation
+ALN_1	scaffold10004_11099	3524	4044	Manes.08G163400.1	0	5	5	0	bad	M153 R2 M1 R1 M21
+ALN_2	scaffold10004_11099	3506	4044	Potri.013G005600.1	0	4	5	0	bad	M159 R2 M1 R1 M21
+ALN_3	scaffold10004_11099	3512	4044	Potri.018G013700.1	0	7	7	0	bad	M157 R2 M1 R1 F2 M20
+ALN_4	scaffold10004_11099	3506	3982	Potri.015G142600.1	0	1	1	0	good	M159
+
+```
+
+## Correlation of intron length and dN/dS ratio
+1. Calculation of dN/dS ratio for each gene
+
 Please see [selection](../selection)
 
-## Statistic estimation of correlation significancy break point
+2. 
+
+significancy break point
