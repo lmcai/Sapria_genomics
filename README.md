@@ -1,6 +1,8 @@
 # Sapria_genomics
 Scripts and supplemental material for the assembly and analysis of Sapria genome.
 
+**Disclaimer**: Although we welcome re-use of these materials, except where noted the code we are sharing here is specific to this project and to the Harvard compute cluster. Filenames and paths are often hard-coded in scripts, and software versions/dependencies are often managed via calls to the Harvard Cannon cluster Lmod system.
+
 Description of the subdirectories
 ----------------------
 The content of each subdirectory is listed as follows. For detailed description and scripts, please see the README file within each directory.
