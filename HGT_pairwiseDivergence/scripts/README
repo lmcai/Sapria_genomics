@@ -1,0 +1,2 @@
+These subdirectories are named according to the results directories they correspond to. Scripts in the current directory may be used by multiple
+scripts in subdirectories (e.g. imported as python module).

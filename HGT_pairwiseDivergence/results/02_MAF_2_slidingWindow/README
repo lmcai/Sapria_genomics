@@ -1,0 +1,2 @@
+This shell script runs a python script that submits many jobs via SLURM, and each job prints out a file for each scaffold. These files must be
+concatenated and put into the concatenatedFiles subdirectory.
