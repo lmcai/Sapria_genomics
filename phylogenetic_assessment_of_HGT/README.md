@@ -55,7 +55,7 @@ Validation of HGT candidates
 --------------------
 The following criteria were applied to all Vitaceae-associated HGT candidates to identify a confident set of HGTs:
 1. Nest within Vitaceae with ultrafast bootstrap support > 80 and SH-aLRT bootstrap support > 80 
-2. Branch length <
+2. Branch length < 0.825 (93% quantile of all HGT branch length distribution)
 3. Unambiguous DNA sequence > 150 bp
 4. Manual check tree topology to ensure gene tree generally match species tree and the HGT pattern is not driven by paralogous copies
 
