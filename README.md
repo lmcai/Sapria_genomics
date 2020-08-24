@@ -59,7 +59,7 @@ The content of each subdirectory is listed as follows. For detailed description 
   
   assembly merging using Quickmerge
   
-- **HGT_pairwiseDivergence**
+- **HGT_pairwiseDivergence (Contributor: [Dr. Brian Arnold](https://github.com/brian-arnold))**
 
   Genome alignment of 10 plant species using Cactus
   
@@ -67,7 +67,6 @@ The content of each subdirectory is listed as follows. For detailed description 
   
   Grouping nearby HGT genomic windows into longer blocks
   
-  (Contributor: [Dr. Brian Arnold](https://github.com/brian-arnold))
 
 - **phylogenetic_assessment_of_HGT**
   
