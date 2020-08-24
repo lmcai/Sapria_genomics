@@ -63,9 +63,11 @@ The content of each subdirectory is listed as follows. For detailed description 
 
   Genome alignment of 10 plant species using Cactus
   
-  HGT detection in low-divergence 
+  Sliding window-based analysis of pairwise divergence to detect HGT
   
-  (Contributor: Dr. Brian Arnold [https://github.com/brian-arnold])
+  Grouping nearby HGT genomic windows into longer blocks
+  
+  (Contributor: [Dr. Brian Arnold](https://github.com/brian-arnold))
 
 - **phylogenetic_assessment_of_HGT**
   
