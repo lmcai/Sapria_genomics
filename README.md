@@ -47,6 +47,26 @@ The content of each subdirectory is listed as follows. For detailed description 
   
   correlation test of maximum intron length and dN/dS ratio
 
+- **selection**
+
+  dN/dS ratio calculation using PAML
+
+- **tetrastigma_genome_assembly**
+
+  nanopore de novo assembly with minimap-miniasm
+  
+  nanopore de novo assembly with CANU
+  
+  assembly merging using Quickmerge
+  
+- **HGT_pairwiseDivergence**
+
+  Genome alignment of 10 plant species using Cactus
+  
+  HGT detection in low-divergence 
+  
+  (Contributor: Dr. Brian Arnold [https://github.com/brian-arnold])
+
 - **phylogenetic_assessment_of_HGT**
   
   alignment and gene tree reconstruction

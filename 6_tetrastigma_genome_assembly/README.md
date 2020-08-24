@@ -12,11 +12,8 @@ script: `minimap_miniasm_pilon.sh`
 CANU automatically correct, trim, and assemble nanopore reads to generate an assembly.
 
 script: `canu.sh`
-## 3. Shasta pipeline
-Shasta is the most recently developed de novo assembler from Oxford Nanopore reads.
 
-script: `shasta.sh`
-## 4. Assembly merge
+## 3. Assembly merge
 We used Quickmerge to merge three assemblies and improve contiguity of genome assemblies based on nanopore sequences.
 
 script: `quickmerge.sh`
