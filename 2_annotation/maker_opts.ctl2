@@ -13,13 +13,13 @@ pred_pass=0 #use ab-initio predictions in maker_gff: 1 = yes, 0 = no
 other_pass=0 #passthrough anyything else in maker_gff: 1 = yes, 0 = no
 
 #-----EST Evidence (for best results provide a file for at least one)
-est=sapria_est.fas #set of ESTs or assembled mRNA-seq in fasta format
-altest=Rafflesiaceae_three_genera_est.fas #EST/cDNA sequence file in fasta format from an alternate organism
+est= #set of ESTs or assembled mRNA-seq in fasta format
+altest= #EST/cDNA sequence file in fasta format from an alternate organism
 est_gff=Sapria_longintron.rnd1_rerun.est2genome.gff #aligned ESTs or mRNA-seq from an external GFF3 file
 altest_gff=Sapria_longintron.rnd1_rerun.cdna2genome.gff #aligned ESTs from a closly relate species in GFF3 format
 
 #-----Protein Homology Evidence (for best results provide a file for at least one)
-protein=Mes.protein.fa,Ptr.protein.fa,Vvi.protein.fa,uniprot_sprot.fasta  #protein sequence file in fasta format (i.e. from mutiple oransisms)
+protein=  #protein sequence file in fasta format (i.e. from mutiple oransisms)
 protein_gff=Sapria_longintron.rnd1_rerun.protein2genome.gff  #aligned protein homology evidence from an external GFF3 file
 
 #-----Repeat Masking (leave values blank to skip repeat masking)
@@ -37,8 +37,8 @@ augustus_species=sapria_longintron #Augustus gene prediction species model
 fgenesh_par_file= #FGENESH parameter file
 pred_gff= #ab-initio predictions from an external GFF3 file
 model_gff= #annotated gene models from an external GFF3 file (annotation pass-through)
-est2genome=1 #infer gene predictions directly from ESTs, 1 = yes, 0 = no
-protein2genome=1 #infer predictions from protein homology, 1 = yes, 0 = no
+est2genome=0 #infer gene predictions directly from ESTs, 1 = yes, 0 = no
+protein2genome=0 #infer predictions from protein homology, 1 = yes, 0 = no
 trna=1 #find tRNAs with tRNAscan, 1 = yes, 0 = no
 snoscan_rrna= #rRNA file to have Snoscan find snoRNAs
 unmask=0 #also run ab-initio prediction programs on unmasked sequence, 1 = yes, 0 = no
