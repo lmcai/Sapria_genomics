@@ -1,40 +1,9 @@
-##########
-#make unique repeat annotation
-##
-import random
-x=open('links18.scaffolds.fa.repeatmasker.TRF.merged_ann.bed').readlines()
-y=open('links18.scaffolds.fa.repeatmasker.TRF.merged_ann.cleaned.bed','a')
-for l in x:
-	ann=l.split()[3].split(',')
-	ann=set(ann)
-	if len(ann)==1:
-		y.write(l)
-	else:
-		info_ann=[i for i in ann if not i in ['Simple_repeat','Tandem_repeat','Unknown']]
-		if len(info_ann)==1:
-			y.write('\t'.join(l.split()[:3]+info_ann)+'\n')
-		elif len(info_ann)>1:
-			y.write('\t'.join(l.split()[:3]+[random.choice(info_ann)])+'\n')
-		else:
-			if 'Simple_repeat' in ann:
-				y.write('\t'.join(l.split()[:3]+['Simple_repeat'])+'\n')
-			elif 'Tandem_repeat' in ann:
-				y.write('\t'.join(l.split()[:3]+['Tandem_repeat'])+'\n')
-			else:
-				y.write('\t'.join(l.split()[:3]+['Unknown'])+'\n')
-
-
-y.close()
-
-
-
-
 #############
 #use site coverage to calculate genomesize repeat abundance
 #
 import re
 x=open('links18.scaffolds.fa.repeatmasker.TRF.merged_ann.cleaned.modifiedname.bed').readlines()
-y=open('../../8_supernova_arks_links_tigmint/links18.10XIllumina.cov.tsv','r')
+y=open('links18.10XIllumina.cov.tsv','r')
 
 genome_sum=0
 tmp_lines = y.readlines(1024)
